@@ -8,14 +8,14 @@ endif(NOT DEFINED COMPILE_TYPE)
 
 add_library(qmsgpack ${COMPILE_TYPE} ${qmsgpack_srcs} ${qmsgpack_headers})
 
-if (Qt5Core_FOUND)
-	target_link_libraries(qmsgpack Qt5::Core)
+if (Qt6Core_FOUND)
+        target_link_libraries(qmsgpack Qt6::Core)
 else ()
 	target_link_libraries(qmsgpack ${QT_LIBRARIES})
 endif ()
 
-if (Qt5Gui_FOUND)
-	target_link_libraries(qmsgpack Qt5::Gui)
+if (Qt6Gui_FOUND)
+        target_link_libraries(qmsgpack Qt6::Gui)
 endif ()
 
 configure_file(
