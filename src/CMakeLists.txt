@@ -6,17 +6,15 @@ if(NOT DEFINED COMPILE_TYPE)
   set(COMPILE_TYPE SHARED)
 endif(NOT DEFINED COMPILE_TYPE)
 
+find_package(Qt6 REQUIRED COMPONENTS Core Gui Quick)
+
 add_library(qmsgpack ${COMPILE_TYPE} ${qmsgpack_srcs} ${qmsgpack_headers})
 
-if (Qt6Core_FOUND)
-        target_link_libraries(qmsgpack Qt6::Core)
-else ()
-	target_link_libraries(qmsgpack ${QT_LIBRARIES})
-endif ()
-
-if (Qt6Gui_FOUND)
-        target_link_libraries(qmsgpack Qt6::Gui)
-endif ()
+target_link_libraries(qmsgpack PUBLIC
+    Qt6::Core
+    Qt6::Gui
+    Qt6::Quick
+)
 
 configure_file(
   "${CMAKE_CURRENT_SOURCE_DIR}/msgpackcommon.h.in"

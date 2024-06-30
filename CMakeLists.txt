@@ -6,9 +6,10 @@
 project(qmsgpack)
 
 cmake_minimum_required(VERSION 3.1.0)
-set (CMAKE_CXX_STANDARD 20)
+#set (CMAKE_CXX_STANDARD 20)
 
 set(CMAKE_INSTALL_NAME_DIR ${LIB_INSTALL_DIR})
+set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
 # build type
 if ("${CMAKE_BUILD_TYPE}" MATCHES "^Rel.*")
