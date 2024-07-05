@@ -10,6 +10,8 @@ find_package(Qt6 REQUIRED COMPONENTS Core Gui Quick)
 
 add_library(qmsgpack ${COMPILE_TYPE} ${qmsgpack_srcs} ${qmsgpack_headers})
 
+target_include_directories(qmsgpack PUBLIC .)
+
 target_link_libraries(qmsgpack PUBLIC
     Qt6::Core
     Qt6::Gui
@@ -30,11 +32,11 @@ set_target_properties(qmsgpack PROPERTIES
 								DEFINE_SYMBOL	MSGPACK_MAKE_LIB
 								PUBLIC_HEADER	"${qmsgpack_headers}")
 
-install(TARGETS qmsgpack EXPORT qmsgpack-export
-	LIBRARY DESTINATION ${LIB_INSTALL_DIR}
-	RUNTIME DESTINATION ${CMAKE_INSTALL_PREFIX}/bin
-	ARCHIVE DESTINATION ${LIB_INSTALL_DIR}
-	PUBLIC_HEADER DESTINATION ${INCLUDE_INSTALL_DIR}/qmsgpack)
+# install(TARGETS qmsgpack EXPORT qmsgpack-export
+# 	LIBRARY DESTINATION ${LIB_INSTALL_DIR}
+# 	RUNTIME DESTINATION ${CMAKE_INSTALL_PREFIX}/bin
+# 	ARCHIVE DESTINATION ${LIB_INSTALL_DIR}
+# 	PUBLIC_HEADER DESTINATION ${INCLUDE_INSTALL_DIR}/qmsgpack)
 
 
-install(FILES  ${qmsgpack_stream_headers} DESTINATION ${INCLUDE_INSTALL_DIR}/qmsgpack/stream)
+# install(FILES  ${qmsgpack_stream_headers} DESTINATION ${INCLUDE_INSTALL_DIR}/qmsgpack/stream)

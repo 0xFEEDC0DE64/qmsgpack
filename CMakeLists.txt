@@ -97,7 +97,7 @@ if (BUILD_TESTS)
 	add_subdirectory(tests)
 endif ()
 
-install(EXPORT qmsgpack-export DESTINATION ${CMAKECONFIG_INSTALL_DIR} FILE MsgPackQtTargets.cmake)
+# install(EXPORT qmsgpack-export DESTINATION ${CMAKECONFIG_INSTALL_DIR} FILE MsgPackQtTargets.cmake)
 
 file(RELATIVE_PATH relInstallDir ${CMAKE_INSTALL_PREFIX}/$CMAKECONFIG_INSTALL_DIR} ${CMAKE_INSTALL_PREFIX})
 
