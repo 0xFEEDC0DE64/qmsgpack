@@ -24,13 +24,17 @@ configure_file(
   IMMEDIATE @ONLY)
 
 if (NOT android)
-	set_target_properties(qmsgpack PROPERTIES
-									VERSION ${QMSGPACK_MAJOR}.${QMSGPACK_MINOR}.${QMSGPACK_VERSION}
-									SOVERSION ${QMSGPACK_MAJOR})
+    set_target_properties(qmsgpack PROPERTIES
+        VERSION ${QMSGPACK_MAJOR}.${QMSGPACK_MINOR}.${QMSGPACK_VERSION}
+        SOVERSION ${QMSGPACK_MAJOR}
+    )
 endif ()
+
 set_target_properties(qmsgpack PROPERTIES
-								DEFINE_SYMBOL	MSGPACK_MAKE_LIB
-								PUBLIC_HEADER	"${qmsgpack_headers}")
+    DEFINE_SYMBOL	MSGPACK_MAKE_LIB
+    PUBLIC_HEADER	"${qmsgpack_headers}")
+
+install(TARGETS qmsgpack)
 
 # install(TARGETS qmsgpack EXPORT qmsgpack-export
 # 	LIBRARY DESTINATION ${LIB_INSTALL_DIR}
